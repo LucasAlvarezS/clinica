@@ -55,7 +55,7 @@ def registrarPaciente():
         color = clasificarPaciente(sintomas)
         emergencia = random.randint(1, 10) == 1
         if emergencia:
-            print("🚨 ALERTA ROJA: Este paciente debe ingresar a quirófano de inmediato.")
+            print("ALERTA ROJA: Este paciente debe ingresar a quirófano de inmediato.")
         
         paciente = {
             "nombre": nombre,
@@ -74,12 +74,12 @@ def registrarPaciente():
         }
 
         listaPacientes.append(paciente)
-        print("✅ Paciente registrado correctamente.\n")
+        print("Paciente registrado correctamente.\n")
 
     except ValueError as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
     except Exception as e:
-        print(f"⚠️ Error inesperado: {e}")
+        print(f"Error inesperado: {e}")
 
 def asignarMedico():
     nombrePaciente = input("Nombre del paciente a asignar: ").strip()
@@ -92,10 +92,10 @@ def asignarMedico():
             paciente["medico"] = medico
             paciente["diagnostico"] = diagnostico
             paciente["tratamiento"] = tratamiento
-            print("✅ Médico, diagnóstico y tratamiento asignados.")
+            print("Médico, diagnóstico y tratamiento asignados.")
             return
 
-    print("❌ Paciente no encontrado.")
+    print("Paciente no encontrado.")
 
 def resumenPorMedico():
     resumen = {}
@@ -110,7 +110,7 @@ def resumenPorMedico():
             resumen[medico]["pacientes"].append(paciente)
 
     for medico, datos in resumen.items():
-        print(f"\n👨‍⚕️ Médico: {medico}")
+        print(f"\n Médico: {medico}")
         print(f"Total pacientes: {datos['total']} | Verde: {datos['verde']} | Amarillo: {datos['amarillo']} | Rojo: {datos['rojo']}")
         for p in datos["pacientes"]:
             print(f"- {p['nombre']} {p['apellido']} ({p['color']}): {p['diagnostico']} -> {p['tratamiento']}")
